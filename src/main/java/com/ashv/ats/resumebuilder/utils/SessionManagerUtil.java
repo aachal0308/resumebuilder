@@ -12,7 +12,7 @@ public class SessionManagerUtil {
     
     private static Map<String, SessionEnitity> idSessionMap = new HashMap<>();
     private static Map<String, SessionEnitity> userSessionMap = new HashMap<>();
-    private static Long expiryTimeInMills = 2 * 60 * 1000; // min * sec * millisecond
+    private static Long expiryTimeInMills = 2 * 60 * 1000l; // min * sec * millisecond
     
 
     public static String generateSessionId(String userId) {
@@ -20,13 +20,17 @@ public class SessionManagerUtil {
         session.setId(UUID.randomUUID().toString());
         session.setUserId(userId);
         session.setLastUsed(Instant.now().toEpochMilli());
+        idSessionMap.put(session.getId(),session);
+        userSessionMap.put(userId,session);
+        return session.getId();
     }
 
     public static boolean validateSessionId(String sessionId) {
         SessionEnitity session = idSessionMap.get(sessionId);
         if(session==null) return false;
         long currTime = Instant.now().toEpochMilli();
-        if(currTime - session.getLastUsed() > expiryTimeInMills) {
+        long sessionTime = currTime - session.getLastUsed();
+        if( sessionTime > expiryTimeInMills) {
             deleteSession(session);
             return false;
         }
@@ -35,7 +39,7 @@ public class SessionManagerUtil {
     }
 
     public static void deleteSession(SessionEnitity session) {
-        idSessionMap.remove(session.getId);
+        idSessionMap.remove(session.getId());
         userSessionMap.remove(session.getUserId());
     }
 
