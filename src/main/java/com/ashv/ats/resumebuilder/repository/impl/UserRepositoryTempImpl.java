@@ -15,7 +15,6 @@ public class UserRepositoryTempImpl implements UserRepository {
     private Map<String, UserEntity> usernameUserMap = new HashMap<>();
     private Map<String, UserEntity> emailUserMap = new HashMap<>();
 
-
     public UserEntity get(String userId) {
         UserEntity user = idUserMap.get(userId);
         if(user==null) {

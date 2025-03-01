@@ -12,13 +12,15 @@ public class LoginResponseModel {
     private String username;
     private String name;
     public Status status;
+    public String session;
 
     public LoginResponseModel() {}
-    public LoginResponseModel(UserEntity user) {
+    public LoginResponseModel(UserEntity user, String sessionId) {
         id = user.getId();
         username = user.getUsername();
         name = user.getFirstName() + " " + user.getLastName();
         status = user.getStatus();
+        session = sessionId;
     }
 
     public void setId(String id){
@@ -47,5 +49,12 @@ public class LoginResponseModel {
     }
     public Status getStatus(){
         return status;
+    }
+
+    public void setSession(String session){
+        this.session=session;
+    }
+    public String getSession(){
+        return session;
     }
 }

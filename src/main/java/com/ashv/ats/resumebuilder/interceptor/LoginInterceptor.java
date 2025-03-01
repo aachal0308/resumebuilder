@@ -1,5 +1,6 @@
 package com.ashv.ats.resumebuilder.interceptor;
 
+import com.ashv.ats.resumebuilder.utils.SessionManagerUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -16,16 +17,14 @@ public class LoginInterceptor implements HandlerInterceptor {
         logger.info("Checking authentication for request: {}", request.getRequestURI());
 
         // Example: Check for a token in headers
-        String authToken = request.getHeader("Authorization");
+        String sessionId = request.getHeader("session");
 
-        /*if (authToken == null || !authToken.equals("valid-token")) {  // Replace with actual token validation
+        if (sessionId == null || !SessionManagerUtil.validateSessionId(sessionId)) {
             logger.warn("Unauthorized request to {}", request.getRequestURI());
-            //response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            //response.getWriter().write("Unauthorized Access");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("Unauthorized Access");
             return false;
-        }*/
-
-        logger.info("User authenticated successfully.");
+        }
         return true;
     }
 }

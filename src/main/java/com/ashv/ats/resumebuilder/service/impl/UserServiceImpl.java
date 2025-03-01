@@ -3,6 +3,7 @@ package com.ashv.ats.resumebuilder.service.impl;
 import com.ashv.ats.resumebuilder.exceptions.InvalidCredentialException;
 import com.ashv.ats.resumebuilder.model.*;
 import com.ashv.ats.resumebuilder.service.UserService;
+import com.ashv.ats.resumebuilder.utils.SessionManagerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ashv.ats.resumebuilder.entity.UserEntity;
@@ -32,7 +33,8 @@ public class UserServiceImpl implements UserService {
         if(!user.getPassword().equals(request.getPassword())){
             throw new InvalidCredentialException();
         }
-        return new LoginResponseModel(user);
+        String sessionId = SessionManagerUtil.generateSessionId(user.getId());
+        return new LoginResponseModel(user, sessionId);
     }
     public void createUser(CreateUserRequestModel request) {
         UserEntity user = request.getUser();
