@@ -32,7 +32,8 @@ public class UserServiceImpl implements UserService {
         if(!user.getPassword().equals(request.getPassword())){
             throw new InvalidCredentialException();
         }
-        return new LoginResponseModel(user);
+        String sessionId = SessionManagerUtil.generateSessionId(user.getUserId());
+        return new LoginResponseModel(user, sessionId);
     }
     public void createUser(CreateUserRequestModel request) {
         UserEntity user = request.getUser();

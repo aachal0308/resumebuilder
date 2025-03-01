@@ -16,16 +16,14 @@ public class LoginInterceptor implements HandlerInterceptor {
         logger.info("Checking authentication for request: {}", request.getRequestURI());
 
         // Example: Check for a token in headers
-        String authToken = request.getHeader("Authorization");
+        String sessionId = request.getHeader("session");
 
-        /*if (authToken == null || !authToken.equals("valid-token")) {  // Replace with actual token validation
+        if (authToken == null || !SessionManagerUtil.validateSessionId(sessionId)) { 
             logger.warn("Unauthorized request to {}", request.getRequestURI());
-            //response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            //response.getWriter().write("Unauthorized Access");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("Unauthorized Access");
             return false;
-        }*/
-
-        logger.info("User authenticated successfully.");
+        }
         return true;
     }
 }
