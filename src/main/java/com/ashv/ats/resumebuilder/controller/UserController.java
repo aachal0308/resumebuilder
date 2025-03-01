@@ -1,6 +1,7 @@
 package com.ashv.ats.resumebuilder.controller;
 
-import com.ashv.ats.resumebuilder.model.CreateUserRequestModel;
+import com.ashv.ats.resumebuilder.entity.UserEntity;
+import com.ashv.ats.resumebuilder.model.UpdateUserRequestModel;
 import com.ashv.ats.resumebuilder.service.UserService;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -18,46 +19,21 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     private UserService userService;
-    Map<String, CreateUserRequestModel> user = new HashMap<>();
-    Map<String, String> userSessions = new HashMap<>();
-    @PostMapping
 
-    public void create(@RequestBody @Valid CreateUserRequestModel input){
-        user.put(input.getId(),input);
-    }
+
     @GetMapping("/{userId}")
+    public @ResponseBody UserEntity get(@PathVariable("userId")String userId) {
+        return userService.get(userId);
+    }
+
+    @DeleteMapping("/{userId}")
     public @ResponseBody CreateUserRequestModel get(@PathVariable("userId")String userId) {
-        //business logic
-        return user.get(userId);
+        return userService.delete(userId);
     }
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        Map<String, String> response = new HashMap<>();
-        CreateUserRequestModel user= getUserByUsername(username);
-        if (user.getPassword().equals(password)) {
-            String sessionId = UUID.randomUUID().toString();
-            userSessions.put(username, sessionId);
-            return sessionId;
-        }
-        else {
-            throw new RuntimeException("Invalid Password");
-        }
-    }
-    @GetMapping("/check-session/{username}")
-    public Map<String, String> checkSession(@PathVariable String username) {
-        Map<String, String> response = new HashMap<>();
-        String sessionId = userSessions.get(username);
-        if (sessionId != null) {
-            response.put("sessionId", sessionId);  // Return stored session ID
-        }
-        else {
-            response.put("error", "No session found for user " + username);
-        }
-        return response;
-    }
-    private CreateUserRequestModel getUserByUsername(String username){
-        Optional<CreateUserRequestModel> optional=user.values().stream().filter(u->u.getUsername().equals(username)).findFirst();
-        if(optional.isPresent()) return optional.get();
-        throw new RuntimeException("Invalid Username");
+
+    @PatchMapping("/{userId}")
+    public @ResponseBody CreateUserRequestModel get(@PathVariable("userId")String userId, @RequestBody UpdateUserRequestModel request) {
+        request.getUser().setId(userId);
+        return userService.update(request);
     }
 }

@@ -1,10 +1,12 @@
 package com.ashv.ats.resumebuilder.service;
 
-import com.ashv.ats.resumebuilder.model.CreateUserRequestModel;
-import java.util.Optional;
-
+import com.ashv.ats.resumebuilder.model.*;
+import com.ashv.ats.resumebuilder.entity.UserEntity;
 
 public interface UserService {
-    void createUser(CreateUserRequestModel user);
-    Optional<CreateUserRequestModel> getUserById(String userId);
+    public UserEntity getUser(String userId);
+    public LoginResponseModel login(LoginRequestModel request);
+    public void createUser(CreateUserRequestModel request);
+    public void updateUser(UpdateUserRequestModel request);
+    public void deleteUser(String userId);
 }
