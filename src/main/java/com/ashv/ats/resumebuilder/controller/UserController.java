@@ -1,6 +1,7 @@
 package com.ashv.ats.resumebuilder.controller;
 
 import com.ashv.ats.resumebuilder.entity.UserEntity;
+import com.ashv.ats.resumebuilder.model.CreateUserRequestModel;
 import com.ashv.ats.resumebuilder.model.UpdateUserRequestModel;
 import com.ashv.ats.resumebuilder.service.UserService;
 import jakarta.validation.Valid;
@@ -23,17 +24,17 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public @ResponseBody UserEntity get(@PathVariable("userId")String userId) {
-        return userService.get(userId);
+        return userService.getUser(userId);
     }
 
     @DeleteMapping("/{userId}")
-    public @ResponseBody CreateUserRequestModel get(@PathVariable("userId")String userId) {
-        return userService.delete(userId);
+    public void delete(@PathVariable("userId")String userId) {
+        userService.deleteUser(userId);
     }
 
     @PatchMapping("/{userId}")
-    public @ResponseBody CreateUserRequestModel get(@PathVariable("userId")String userId, @RequestBody UpdateUserRequestModel request) {
+    public void update(@PathVariable("userId")String userId, @RequestBody UpdateUserRequestModel request) {
         request.getUser().setId(userId);
-        return userService.update(request);
+        userService.updateUser(request);
     }
 }

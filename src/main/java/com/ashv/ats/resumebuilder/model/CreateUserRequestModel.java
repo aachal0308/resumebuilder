@@ -1,5 +1,6 @@
 package com.ashv.ats.resumebuilder.model;
 
+import com.ashv.ats.resumebuilder.entity.UserEntity;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.validation.annotation.*;
 import org.springframework.lang.NonNull;

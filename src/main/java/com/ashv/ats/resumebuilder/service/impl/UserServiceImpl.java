@@ -1,6 +1,9 @@
 package com.ashv.ats.resumebuilder.service.impl;
 
+import com.ashv.ats.resumebuilder.exceptions.InvalidCredentialException;
 import com.ashv.ats.resumebuilder.model.*;
+import com.ashv.ats.resumebuilder.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ashv.ats.resumebuilder.entity.UserEntity;
 import com.ashv.ats.resumebuilder.repository.UserRepository;
@@ -26,7 +29,7 @@ public class UserServiceImpl implements UserService {
         if(user==null) {
             throw new InvalidCredentialException();
         }
-        if(!user.getPassword().equals(request.getPassword()) {
+        if(!user.getPassword().equals(request.getPassword())){
             throw new InvalidCredentialException();
         }
         return new LoginResponseModel(user);
@@ -40,19 +43,19 @@ public class UserServiceImpl implements UserService {
         userRepository.create(user);
     }
     public void updateUser(UpdateUserRequestModel request) {
-        UserEntity old = userRepository.get(userId);
-        UserEntity new = request.getUser();
+        UserEntity old = userRepository.get(request.getUser().getId());
+        UserEntity updated = request.getUser();
         boolean isUpdated = false;
-        if(shouldUpdate(old.getFirstName(),new.getFirstName())) {
-            old.setFirstName(new.getFirstName());
+        if(shouldUpdate(old.getFirstName(),updated.getFirstName())) {
+            old.setFirstName(updated.getFirstName());
             isUpdated = true;
         }
-        if(shouldUpdate(old.getLastName(),new.getLastName())) {
-            old.setLastName(new.getLastName());
+        if(shouldUpdate(old.getLastName(),updated.getLastName())) {
+            old.setLastName(updated.getLastName());
             isUpdated = true;
         }
-        if(shouldUpdate(old.getEmail(),new.getEmail())) {
-            old.setLastName(new.getLastName());
+        if(shouldUpdate(old.getEmail(),updated.getEmail())) {
+            old.setLastName(updated.getLastName());
             old.setStatus(UserEntity.Status.NOT_VERIFIED);
             isUpdated = true;
         }

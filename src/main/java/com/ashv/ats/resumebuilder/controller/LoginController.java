@@ -2,6 +2,7 @@ package com.ashv.ats.resumebuilder.controller;
 
 import com.ashv.ats.resumebuilder.model.CreateUserRequestModel;
 import com.ashv.ats.resumebuilder.model.LoginRequestModel;
+import com.ashv.ats.resumebuilder.model.LoginResponseModel;
 import com.ashv.ats.resumebuilder.service.UserService;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -15,13 +16,13 @@ import java.util.UUID;
 
 @RestController
 @Validated
-public class UserController {
+public class LoginController {
     @Autowired
     private UserService userService;
 
     @PostMapping("/signup")
     public void create(@RequestBody @Valid CreateUserRequestModel request){
-        userService.create(request)
+        userService.createUser(request);
     }
 
     @PostMapping("/login")

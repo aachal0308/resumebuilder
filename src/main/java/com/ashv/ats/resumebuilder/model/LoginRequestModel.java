@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 import org.springframework.validation.annotation.*;
 import org.springframework.lang.NonNull;
 
-class LoginRequestModel {
+public class LoginRequestModel {
 
     @NotEmpty
     private String username;

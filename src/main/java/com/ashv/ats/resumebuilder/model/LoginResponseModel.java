@@ -6,7 +6,7 @@ import org.springframework.lang.NonNull;
 import com.ashv.ats.resumebuilder.entity.UserEntity.Status;
 import com.ashv.ats.resumebuilder.entity.UserEntity;
 
-class LoginResponseModel {
+public class LoginResponseModel {
 
     private String id;
     private String username;

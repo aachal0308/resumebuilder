@@ -5,7 +5,7 @@ import org.springframework.validation.annotation.*;
 import org.springframework.lang.NonNull;
 import java.time.LocalDateTime;
 
-class UserEntity {
+public class UserEntity {
 
     private String id;
 
@@ -21,14 +21,13 @@ class UserEntity {
     private String lastName;
 
     @NotEmpty
-    private String emailId;
+    private String email;
 
-    public Status status;
+    private Status status;
 
-    public LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
-    public LocalDateTime updatedAt;
-
+    private LocalDateTime updatedAt;
 
     public String getPassword() {
         return password;
@@ -81,13 +80,6 @@ class UserEntity {
             status = Status.NOT_VERIFIED;
         }
         return status;
-    }
-
-    public void setEmail(String email){
-        this.email=email;
-    }
-    public String getEmail(){
-        return email;
     }
 
     public void setCreatedAt(LocalDateTime createdAt){
