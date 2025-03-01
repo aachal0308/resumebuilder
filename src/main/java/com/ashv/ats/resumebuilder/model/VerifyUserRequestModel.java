@@ -1,13 +1,13 @@
 package com.ashv.ats.resumebuilder.model;
 
-import com.ashv.ats.resumebuilder.entity.UserEntity;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.validation.annotation.*;
 import org.springframework.lang.NonNull;
-public class CreateUserRequestModel {
+public class VerifyUserRequestModel {
     
     private String requestId;
-    private UserEntity user;
+    private String userId;
+    private int otp;
 
     public String getRequestId() {
         return requestId;
@@ -17,11 +17,19 @@ public class CreateUserRequestModel {
         this.requestId = requestId;
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
+    }
+
+     public void setOtp(int otp) {
+        this.otp = otp;
+    }
+
+    public int getOtp() {
+        return otp;
     }
 }
