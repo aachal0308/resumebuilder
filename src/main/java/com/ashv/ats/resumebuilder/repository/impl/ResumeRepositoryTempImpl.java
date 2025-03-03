@@ -5,7 +5,9 @@ import com.ashv.ats.resumebuilder.repository.ResumeRepository;
 import org.springframework.stereotype.Component;
 import com.ashv.ats.resumebuilder.exceptions.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component

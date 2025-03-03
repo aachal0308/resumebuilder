@@ -2,6 +2,8 @@ package com.ashv.ats.resumebuilder.repository;
 
 import com.ashv.ats.resumebuilder.entity.ResumeEntity;
 
+import java.util.List;
+
 
 public interface ResumeRepository {
     
