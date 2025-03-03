@@ -6,6 +6,7 @@ import java.util.Map;
 
     public class ResumeEntity {
         private String id;
+        private String label;
         private String templateId;
         private String name;
         private List<Contact> contact;
@@ -15,6 +16,7 @@ import java.util.Map;
         private List<String> hobbies;
         private List<Skill> skills;
         private ExtraData extraData;
+        private String owner;
 
         // Constructors
         public void Resume() {
@@ -41,6 +43,14 @@ import java.util.Map;
 
         public void setId(String id) {
             this.id = id;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        public void setLabel(String label) {
+            this.label = label;
         }
 
         public String getTemplateId() {
@@ -113,6 +123,14 @@ import java.util.Map;
 
         public void setExtraData(ExtraData extraData) {
             this.extraData = extraData;
+        }
+
+        public String getOwner() {
+            return owner;
+        }
+
+        public void setOwner(String owner) {
+            this.owner = owner;
         }
 
         public static class Contact {
