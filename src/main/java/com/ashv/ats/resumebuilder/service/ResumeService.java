@@ -21,21 +21,4 @@ public class ResumeService {
         Resume savedResume = resumeRepository.save(resume);
         return savedResume.getId();
     }
-
-    // Generate HTML on Demand
-    public String generateResumeHtml(String id) {
-        Optional<Resume> resumeOpt = resumeRepository.findById(id);
-        if (resumeOpt.isEmpty()) {
-            return "Resume not found";
-        }
-
-        Resume resume = resumeOpt.get();
-
-        // Generate HTML dynamically
-        return "<html><body>" +
-                "<h1>" + resume.getName() + "</h1>" +
-                "<p>Email: " + resume.getEmail() + "</p>" +
-                "<p>Experience: " + resume.getExperience() + "</p>" +
-                "</body></html>";
-    }
 }
