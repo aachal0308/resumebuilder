@@ -9,7 +9,7 @@ public class LoginInterceptorConfi implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
-                .addPathPatterns("/resumebuilder/user/**")
-                .excludePathPatterns("/resumebuilder/user/login");
+                .addPathPatterns("/resumebuilder/**");
+               // .excludePathPatterns("/resumebuilder/user/login");
     }
 }

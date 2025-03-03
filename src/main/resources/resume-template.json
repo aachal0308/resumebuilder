@@ -1,0 +1,144 @@
+{
+    "id": "template-id",
+    "name": "Firstname Lastname",
+    "contact": [
+      {
+        "key": "Mobile",
+        "value": "+91-9876543210"
+      },
+      {
+        "key": "Email",
+        "value": "email@gmail.com"
+      },
+      {
+        "key": "LinkedIn",
+        "value": "https://www.linkedin.com/in/example-a05101010/"
+      }
+    ],
+    "languages": [
+      "english",
+      "hindi",
+      "marathi"
+    ],
+    "experiance": [
+      {
+        "company": "ABC Technologies Pvt Ltd",
+        "details": [
+          {
+            "designation": "Software Engineer",
+            "project": "ABC",
+            "from": {
+              "day": 2,
+              "month": 2,
+              "year": 2025
+            },
+            "to": {
+              "year": -1
+            },
+            "summary": "",
+            "sequence": 1
+          },
+          {
+            "designation": "Software Engineer",
+            "project": "XYZ",
+            "from": {
+              "day": 15,
+              "month": 5,
+              "year": 2023
+            },
+            "to": {
+              "day": 2,
+              "month": 2,
+              "year": 2025
+            },
+            "summary": "",
+            "sequence": 2
+          },
+          {
+            "designation": "Junior Software Engineer",
+            "project": "XYZ",
+            "from": {
+              "day": 10,
+              "month": 10,
+              "year": 2022
+            },
+            "to": {
+              "day": 14,
+              "month": 5,
+              "year": 2023
+            },
+            "summary": "",
+            "sequence": 3
+          }
+        ],
+        "sequence": 1
+      },
+      {
+        "company": "PQR Corporations",
+        "details": [
+          {
+            "designation": "Intern",
+            "project": "INT",
+            "from": {
+              "day": 10,
+              "month": 10,
+              "year": 2022
+            },
+            "to": {
+              "day": 1,
+              "month": 6,
+              "year": 2022
+            },
+            "summary": "",
+            "sequence": 1
+          }
+        ],
+        "sequence": 2
+      }
+    ],
+    "education": [
+      {
+        "institute": "DEF College",
+        "univercity": "NY",
+        "average_grade": "8.2 CGPA",
+        "from": {
+          "day": 10,
+          "month": 10,
+          "year": 2022
+        },
+        "to": {
+          "day": 1,
+          "month": 6,
+          "year": 2022
+        },
+        "details": [
+          {
+            "subtitle": "First Year",
+            "from": {
+              "day": 10,
+              "month": 10,
+              "year": 2022
+            },
+            "to": {
+              "day": 1,
+              "month": 6,
+              "year": 2022
+            },
+            "grade": "8.2 CGPA",
+            "achivements": ""
+          }
+        ],
+        "achivements": ""
+      }
+    ],
+    "hobbies": [
+      "swiming",
+      "reading"
+    ],
+    "extraData"{
+      "something": "something",
+      "somthing_else": [
+        "somthing_else"
+      ]
+    }
+  }
