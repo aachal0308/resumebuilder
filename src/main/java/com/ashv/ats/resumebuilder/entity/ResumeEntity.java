@@ -6,6 +6,7 @@ import java.util.Map;
 
     public class ResumeEntity {
         private String id;
+        private String templateId;
         private String name;
         private List<Contact> contact;
         private List<String> languages;
@@ -18,9 +19,10 @@ import java.util.Map;
         // Constructors
         public void Resume() {}
 
-        public void Resume(String id, String name, List<Contact> contact, List<String> languages, List<Experience> experience,
+        public void Resume(String id,String templateId,String name, List<Contact> contact, List<String> languages, List<Experience> experience,
                            List<Education> education, List<String> hobbies, List<Skill> skills,ExtraData extraData) {
             this.id = id;
+            this.templateId = templateId;
             this.name = name;
             this.contact = contact;
             this.languages = languages;
@@ -34,6 +36,9 @@ import java.util.Map;
         // Getters and Setters
         public String getId() { return id; }
         public void setId(String id) { this.id = id; }
+
+        public String getTemplateId() { return templateId; }
+        public void setTemplateId(String templateId) { this.templateId = templateId; }
 
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }
