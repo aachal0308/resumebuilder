@@ -368,7 +368,7 @@ public class ResumeEntity {
         }
     }
 
-    class Skill {
+    public static class Skill {
         private String key;
         private List<String> value;
 

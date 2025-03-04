@@ -25,11 +25,11 @@ public class ResumeRepositoryTempImpl implements ResumeRepository {
     public ResumeEntity get(String userId, String resumeId) {
         Map<String, ResumeEntity> resumes = resumeMap.get(userId);
         if(resumes==null) {
-            throw new RuntimeException("Resume not found, It may not exist or deleted")
+            throw new RuntimeException("Resume not found, It may not exist or deleted");
         }
-        ResumeEntity resume = resumeId resumes.get(resumeId);
+        ResumeEntity resume = resumes.get(resumeId);
         if(resume==null) {
-            throw new RuntimeException("Resume not found, It may not exist or deleted")
+            throw new RuntimeException("Resume not found, It may not exist or deleted");
         }
         return resume;
     }
@@ -47,12 +47,12 @@ public class ResumeRepositoryTempImpl implements ResumeRepository {
     public void delete(String userId, String resumeId) {
         Map<String, ResumeEntity> resumes = resumeMap.get(userId);
         if(resumes==null) {
-            throw new RuntimeException("Resume not found, It may not exist or deleted")
+            throw new RuntimeException("Resume not found, It may not exist or deleted");
         }
-        ResumeEntity resume = resumeId resumes.get(resumeId);
+        ResumeEntity resume = resumes.get(resumeId);
         if(resume==null) {
-            throw new RuntimeException("Resume not found, It may not exist or deleted")
+            throw new RuntimeException("Resume not found, It may not exist or deleted");
         }
-        resume.remove(resumeId);
+        resumes.remove(resumeId);
     }
 }

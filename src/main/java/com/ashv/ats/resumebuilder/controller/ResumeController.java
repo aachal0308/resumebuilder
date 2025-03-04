@@ -1,5 +1,5 @@
 package com.ashv.ats.resumebuilder.controller;
-import com.ashv.ats.resumebuilder.Dto.ResumeDTO;
+import com.ashv.ats.resumebuilder.entity.ResumeEntity;
 import com.ashv.ats.resumebuilder.service.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,16 +18,16 @@ public class ResumeController {
 
     // Save User Data (No HTML)
     @PostMapping("/save")
-    public ResponseEntity<String> saveResume(@RequestBody ResumeDTO resumeDTO) {
-        String id = resumeService.saveResume(resumeDTO);
+    public ResponseEntity<String> saveResume(@RequestBody ResumeEntity resumeEntity, @RequestHeader("session") String sessionId) {
+        String id = resumeService.saveResume(resumeEntity, sessionId);
         return ResponseEntity.ok("Resume saved with ID: " + id);
     }
 
     // Generate Resume HTML Dynamically
-    @GetMapping("/preview/{id}")
+    /*@GetMapping("/preview/{id}")
     public ResponseEntity<String> previewResume(@PathVariable String id) {
         String resumeHtml = resumeService.generateResumeHtml(id);
         return ResponseEntity.ok(resumeHtml);
-    }
+    }*/
 }
 
