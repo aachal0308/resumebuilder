@@ -9,9 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const switchToSignup = document.getElementById("switch-to-signup");
     const switchToLogin = document.getElementById("switch-to-login");
+    
+     // Check if user is already logged in
+     if (sessionStorage.getItem("sessionId") && localStorage.getItem("userId")) {
+        window.location.href = "dashboard.html"; // Redirect to dashboard if session exists
+    }
 
     // Check if user has already signed up
-    if (localStorage.getItem("isSignedUp")) {
+    /*if (localStorage.getItem("isSignedUp")) {
         loginForm.style.display = "block";
         signupForm.style.display = "none";
         formTitle.textContent = "login";
@@ -19,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.style.display="none";
         signupForm.style.display="block";
         formTitle.textContent="Sign up";
-    }
+    }*/
 
     // Switch to Signup Form
     switchToSignup.addEventListener("click", function (event) {
@@ -42,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Form Validation & Signup Request
     signupForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        const fullname = signupForm.queryselector("input[name='fullname']").vaue;
-        const email=signupForm.queryselector("input[name='email']").value;
+        const fullname = signupForm.querySelector("input[name='fullname']").vaue;
+        const email=signupForm.querySelector("input[name='email']").value;
         const userName = signupForm.querySelector("input[name='username']").value;
         const password = signupForm.querySelector("input[type='password']").value;
 
@@ -91,7 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Signup Successful!");
 
             // Store signup status in localStorage
-            localStorage.setItem("isSignedUp", "true");
+           // localStorage.setItem("isSignedUp", "true");
+
+            // Store user ID
+            localStorage.setItem("userId", data.userId);
 
             signupForm.reset();
             signupForm.style.display = "none";
@@ -113,12 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (userName === "" || password === "") {
             errorMessage.textContent = "All fields are required!";
-        } else {
-            // Send login request to backend
-            fetch(`http://localhost:8080/login?username=${encodeURIComponent(userName)}&password=${encodeURIComponent(password)}`, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({ username: userName, password: password})
+            return;
+        } 
+
+        // Send login request to backend
+        fetch(`http://localhost:8080/login?username=${encodeURIComponent(userName)}&password=${encodeURIComponent(password)}`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ username: userName, password: password})
 
             })
             .then(response => {
@@ -130,6 +140,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 console.log("Login Successful:", data);
                 alert("Login Successful!");
+
+                 // Store session ID and user ID
+                sessionStorage.setItem("sessionId", data.sessionId);
+                localStorage.setItem("userId", data.userId);
+
 
                 // Redirect to dashboard or another page after login
                 window.location.href = "dashboard.html";

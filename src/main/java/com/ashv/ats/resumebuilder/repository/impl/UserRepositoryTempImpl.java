@@ -2,12 +2,15 @@ package com.ashv.ats.resumebuilder.repository.impl;
 
 import com.ashv.ats.resumebuilder.entity.UserEntity;
 import com.ashv.ats.resumebuilder.repository.UserRepository;
+
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import com.ashv.ats.resumebuilder.exceptions.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Primary
 @Component
 public class UserRepositoryTempImpl implements UserRepository {
     

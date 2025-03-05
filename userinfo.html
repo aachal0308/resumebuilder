@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Contact Info</title>
+    <link rel="stylesheet" href="buildmyresume.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Resume Builder</h2>
+            <ul>
+                <li class="active">1. Contact Info</li>
+                <li>2. Education</li>
+                <li>3. Experience</li>
+                <li>4. Skills</li>
+                <li>5. Summary</li>
+                <li>6. Finalize</li>
+            </ul>
+            <div class="progress">
+                <div class="progress-bar" style="width: 20%;">RESUME COMPLETENESS: 20%</div>
+            </div>
+        </aside>
+        
+        <main class="content">
+            <h1>Contact Information</h1>
+            <p class="required-note">* indicates a required field</p>
+            
+            <form action="education.html">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name *</label>
+                        <input type="text" placeholder="e.g. Saanvi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Surname *</label>
+                        <input type="text" placeholder="e.g. Patel" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input type="text" placeholder="e.g. New Delhi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Country *</label>
+                        <input type="text" placeholder="e.g. India" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone *</label>
+                        <input type="tel" placeholder="+91 22 1234 5677" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" placeholder="e.g. saanvipatel@sample.in" required>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="preview-btn">Preview</button>
+                    <button type="submit" class="next-btn">Next: Education</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
