@@ -13,7 +13,7 @@ public class SessionManagerUtil {
 
     private static Map<String, SessionEntity> idSessionMap = new HashMap<>();
     private static Map<String, SessionEntity> userSessionMap = new HashMap<>();
-    private static Long expiryTimeInMills = 2 * 60 * 1000l; // min * sec * millisecond
+    private static Long expiryTimeInMills = 10 * 60 * 1000l; // min * sec * millisecond
 
     public static String getUserIdBySession(String sessionId) {
         SessionEntity session = idSessionMap.get(sessionId);

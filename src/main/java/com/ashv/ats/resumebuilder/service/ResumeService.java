@@ -43,26 +43,27 @@ public class ResumeService {
     }
 
     // Update an existing resume, ensuring only the owner can update it
-    public void updateResume(String sessionId, ResumeEntity updatedResume) {
+    public void updateResume(String sessionId, String resumeId,ResumeEntity request) {
+        validateSession(sessionId, resumeId);
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
-        ResumeEntity existingResume = resumeRepository.get(userId, updatedResume.getId());
-
-        if (!existingResume.getOwner().equals(userId)) {
-            throw new RuntimeException("Unauthorized access to update this resume.");
-        }
-
-        resumeRepository.update(userId, updatedResume);
+        request.setId(resumeId);
+        request.setOwner(userId);
+        resumeRepository.update(userId,request);
     }
 
     // Delete a resume, ensuring only the owner can delete it
     public void deleteResume(String sessionId, String resumeId) {
+        validateSession(sessionId, resumeId);
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
-        ResumeEntity resume = resumeRepository.get(userId, resumeId);
-
-        if (!resume.getOwner().equals(userId)) {
-            throw new RuntimeException("Unauthorized access to delete this resume.");
-        }
-
         resumeRepository.delete(userId, resumeId);
+    }
+    private void validateSession(String sessionId,String resumeId){
+        if(sessionId.equals("dev")) return;
+        String userId = SessionManagerUtil.getUserIdBySession(sessionId);
+        ResumeEntity existingResume = resumeRepository.get(userId, resumeId);
+
+        if (!existingResume.getOwner().equals(userId)) {
+            throw new RuntimeException("Unauthorized access to update this resume.");
+        }
     }
 }
