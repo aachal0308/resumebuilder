@@ -39,6 +39,7 @@ public class ResumeController {
     @GetMapping("/{resumeId}")
     public ResponseEntity<ResumeEntity> getResume(@RequestHeader("session") String sessionId,
                                                   @PathVariable String resumeId) {
+        System.out.println("Received session header: " + sessionId);
         ResumeEntity resume = resumeService.getResume(sessionId, resumeId);
         return ResponseEntity.ok(resume);
     }
