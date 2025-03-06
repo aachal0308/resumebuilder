@@ -3,7 +3,6 @@ package com.ashv.ats.resumebuilder.repository.impl;
 import com.ashv.ats.resumebuilder.entity.ResumeEntity;
 import com.ashv.ats.resumebuilder.repository.ResumeRepository;
 import org.springframework.stereotype.Component;
-import com.ashv.ats.resumebuilder.exceptions.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
