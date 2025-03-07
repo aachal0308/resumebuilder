@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+// @CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @Validated
 public class LoginController {
@@ -30,3 +31,4 @@ public class LoginController {
         return userService.login(request);
     }
 }
+  
