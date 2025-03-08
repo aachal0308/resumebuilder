@@ -425,5 +425,14 @@ public class ResumeEntity {
 
     public static class ExtraData {
         private Map<String, Object> extra;
+
+        public Map<String, Object> getExtra() {
+            return extra;
+        }
+
+        public void setExtra(Map<String, Object> extra) {
+            this.extra = extra;
+        }
     }
+
 }
