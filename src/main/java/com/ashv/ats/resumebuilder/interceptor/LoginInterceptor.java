@@ -19,7 +19,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         // Example: Check for a token in headers
         String sessionId = request.getHeader("session");
 
-        if (sessionId == null || !SessionManagerUtil.validateSessionId(sessionId)) {
+        if (sessionId == null || sessionId.equals("dev")|| !SessionManagerUtil.validateSessionId(sessionId)) {
             logger.warn("Unauthorized request to {}", request.getRequestURI());
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Unauthorized Access");

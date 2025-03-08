@@ -5,7 +5,7 @@ import org.springframework.validation.annotation.*;
 import org.springframework.lang.NonNull;
 import java.time.LocalDateTime;
 
-public class SessionEnitity {
+public class SessionEntity {
 
     private String id;
 
