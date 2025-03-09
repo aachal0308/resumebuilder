@@ -10,7 +10,7 @@ import com.ashv.ats.resumebuilder.exceptions.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Primary
+
 @Component
 public class UserRepositoryTempImpl implements UserRepository {
     

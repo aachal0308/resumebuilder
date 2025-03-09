@@ -9,6 +9,7 @@ import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -22,7 +23,7 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/signup")
-    public void create(@RequestBody @Valid CreateUserRequestModel request){
+    public void create(@RequestBody @Valid CreateUserRequestModel request) {
         userService.createUser(request);
     }
 
