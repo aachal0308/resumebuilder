@@ -19,6 +19,9 @@ public class MongoCollectionSetup {
         if (!userMongoTemplate.collectionExists("userEntity")) {
             userMongoTemplate.createCollection("userEntity");
         }
+        if (!userMongoTemplate.collectionExists("resumeEntity")) { // Add your new collection name here
+            userMongoTemplate.createCollection("resumeEntity");
+        }
 
         
     }

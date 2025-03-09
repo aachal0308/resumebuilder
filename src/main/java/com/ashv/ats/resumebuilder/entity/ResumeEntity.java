@@ -3,9 +3,13 @@ package com.ashv.ats.resumebuilder.entity;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 
 public class ResumeEntity {
     private String id;
+    @Field("owner")
+    private String owner;
     private String label;
     private String templateId;
     private String name;
@@ -16,15 +20,16 @@ public class ResumeEntity {
     private List<String> hobbies;
     private List<Skill> skills;
     private ExtraData extraData;
-    private String owner;
+    
 
     // Constructors
     public void Resume() {
     }
 
-    public void Resume(String id, String templateId, String name, List<Contact> contact, List<String> languages, List<Experience> experience,
+    public void Resume(String id,String owner, String templateId, String name, List<Contact> contact, List<String> languages, List<Experience> experience,
                        List<Education> education, List<String> hobbies, List<Skill> skills, ExtraData extraData) {
         this.id = id;
+        this.owner=owner;
         this.templateId = templateId;
         this.name = name;
         this.contact = contact;
@@ -40,6 +45,12 @@ public class ResumeEntity {
     public String getId() {
         return id;
     }
+    public String getOwner() {
+        return owner;
+    }
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
     public String getLabel() {
         return label;
@@ -48,15 +59,10 @@ public class ResumeEntity {
     public void setLabel(String label) {
         this.label = label;
     }
+    
+   
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -402,26 +408,47 @@ public class ResumeEntity {
         private int month;
         private int year;
 
-
-        public int getDay() {
-            return day;
-        }
-
-        public int getMonth() {
-            return month;
-        }
-
-        public int getYear() {
-            return year;
-        }
-
-
+        // Default constructor
+        public DateRange() {}
+    
+        // Parameterized constructor
         public DateRange(int day, int month, int year) {
             this.day = day;
             this.month = month;
             this.year = year;
         }
+    
+        // Getter for 'day'
+        public int getDay() {
+            return day;
+        }
+    
+        // Setter for 'day'
+        public void setDay(int day) {
+            this.day = day;
+        }
+    
+        // Getter for 'month'
+        public int getMonth() {
+            return month;
+        }
+    
+        // Setter for 'month'
+        public void setMonth(int month) {
+            this.month = month;
+        }
+    
+        // Getter for 'year'
+        public int getYear() {
+            return year;
+        }
+    
+        // Setter for 'year'
+        public void setYear(int year) {
+            this.year = year;
+        }
     }
+    
 
     public static class ExtraData {
         private Map<String, Object> extra;

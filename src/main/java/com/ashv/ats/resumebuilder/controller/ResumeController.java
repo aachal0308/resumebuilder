@@ -22,7 +22,8 @@ public class ResumeController {
     @PostMapping("/save")
     public ResponseEntity<String> saveResume(@RequestBody ResumeEntity resumeEntity, @RequestHeader("session") String sessionId) {
         String id = resumeService.saveResume(resumeEntity, sessionId);
-        return ResponseEntity.ok("Resume saved with ID: " + id);
+        System.out.println("Received Owner: " + resumeEntity.getOwner());
+        return ResponseEntity.ok("Resume saved with ID: " + id + resumeEntity.getOwner());
     }
 
     // Get all resumes for the logged-in user
