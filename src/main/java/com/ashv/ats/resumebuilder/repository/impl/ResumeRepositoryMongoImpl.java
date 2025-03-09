@@ -27,7 +27,7 @@ public class ResumeRepositoryMongoImpl implements ResumeRepository {
     
     public List<ResumeEntity> list(String userId, int from, int size) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("userId").is(userId));
+        query.addCriteria(Criteria.where("owner").is(userId));
         query.skip(from).limit(size);
         return mongoTemplate.find(query, ResumeEntity.class);
     }
@@ -35,7 +35,7 @@ public class ResumeRepositoryMongoImpl implements ResumeRepository {
         Query query = new Query();
         
         // Ensure correct field names: "_id" for MongoDB ID and "userId"
-        query.addCriteria(Criteria.where("userId").is(userId).and("_id").is(resumeId));
+        query.addCriteria(Criteria.where("owner").is(userId).and("_id").is(resumeId));
     
         // Fetch the resume
         ResumeEntity resume = mongoTemplate.findOne(query, ResumeEntity.class);
