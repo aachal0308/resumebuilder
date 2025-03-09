@@ -1,5 +1,4 @@
 package com.ashv.ats.resumebuilder.controller;
-
 import com.ashv.ats.resumebuilder.entity.UserEntity;
 import com.ashv.ats.resumebuilder.model.CreateUserRequestModel;
 import com.ashv.ats.resumebuilder.model.UpdateUserRequestModel;

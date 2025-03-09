@@ -15,7 +15,12 @@ public class SessionManagerUtil {
     private static Map<String, SessionEntity> userSessionMap = new HashMap<>();
     private static Long expiryTimeInMills = 10 * 60 * 1000l; // min * sec * millisecond
 
+    public static final String DEV_USER = "dev";
+
     public static String getUserIdBySession(String sessionId) {
+        if(sessionId.equals(DEV_USER)) {
+            return DEV_USER;
+        }
         SessionEntity session = idSessionMap.get(sessionId);
         if (session == null) {
             return null; // Return null if session does not exist
