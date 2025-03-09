@@ -21,8 +21,8 @@ public class ResumeService {
     // Save a new resume
     public String saveResume(ResumeEntity resume, String sessionId) {
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
-        if (resume.getOwner() == null && "dev".equals(sessionId)) {
-            throw new IllegalArgumentException("Owner cannot be null for dev session");
+        if (resume.getOwner() != null && SessionManagerUtil.DEV_USER.equals(sessionId)) {
+            userId = resume.getOwner();
         }
         resume.setOwner(userId); // Ensure owner is set
         resumeRepository.create(userId, resume);
@@ -37,11 +37,10 @@ public class ResumeService {
 
     // Get a specific resume, ensuring only the owner can access it
     public ResumeEntity getResume(String sessionId, String resumeId) {
+        validateSession(sessionId, resumeId);
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
         ResumeEntity resume = resumeRepository.get(userId, resumeId);
-        if (!resume.getOwner().equals(userId)) {
-            throw new RuntimeException("Unauthorized access to this resume.");
-        }
+        
         return resume;
     }
 
@@ -61,7 +60,7 @@ public class ResumeService {
         resumeRepository.delete(userId, resumeId);
     }
     private void validateSession(String sessionId,String resumeId){
-        if(sessionId.equals("dev")) return;
+        if(sessionId.equals(SessionManagerUtil.DEV_USER)) return;
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
         ResumeEntity existingResume = resumeRepository.get(userId, resumeId);
 
