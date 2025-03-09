@@ -9,11 +9,13 @@ import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+// @CrossOrigin(origins = "http://127.0.0.1:5501")
 @RestController
 @Validated
 public class LoginController {
@@ -21,7 +23,7 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/signup")
-    public void create(@RequestBody @Valid CreateUserRequestModel request){
+    public void create(@RequestBody @Valid CreateUserRequestModel request) {
         userService.createUser(request);
     }
 
@@ -30,3 +32,4 @@ public class LoginController {
         return userService.login(request);
     }
 }
+  
