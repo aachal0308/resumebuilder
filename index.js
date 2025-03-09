@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Signup failed! Please try again.");
 
             const data = await response.json();
-            console.log("Signup Successful:", data);
+            console.log("Signup Successful:",);
             alert("Signup Successful!");
 
             // Store user ID
@@ -362,14 +362,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Invalid username or password.");
 
             const data = await response.json();
-            console.log("Login Successful:", data);
+            console.log("Login Successful:");
             alert("Login Successful!");
 
             // Store session ID and user ID
             sessionStorage.setItem("sessionId", data.sessionId);
             localStorage.setItem("userId", data.userId);
 
-            // Redirect to dashboard
+            // Redirect to homepg
             window.location.href = "homepg.html";
         } catch (error) {
             console.error("Error:", error);
