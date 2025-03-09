@@ -2,6 +2,7 @@ package com.ashv.ats.resumebuilder.repository.impl;
 
 import com.ashv.ats.resumebuilder.entity.ResumeEntity;
 import com.ashv.ats.resumebuilder.repository.ResumeRepository;
+import com.ashv.ats.resumebuilder.utils.SessionManagerUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;

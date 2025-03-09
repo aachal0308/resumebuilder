@@ -37,11 +37,10 @@ public class ResumeService {
 
     // Get a specific resume, ensuring only the owner can access it
     public ResumeEntity getResume(String sessionId, String resumeId) {
+        validateSession(sessionId, resumeId);
         String userId = SessionManagerUtil.getUserIdBySession(sessionId);
         ResumeEntity resume = resumeRepository.get(userId, resumeId);
-        if (!resume.getOwner().equals(userId)) {
-            throw new RuntimeException("Unauthorized access to this resume.");
-        }
+        
         return resume;
     }
 
