@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/api/resume")
+@RequestMapping("/resumebuilder/resume")
 public class ResumeController {
 
     private final ResumeService resumeService;
