@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Check if user is already logged in
     if (sessionStorage.getItem("sessionId") && localStorage.getItem("userId")) {
-        window.location.href = "homepg.html"; // Redirect if session exists
+        window.location.href = "home.html"; // Redirect if session exists
     }
 
     // Switch to Signup Form
@@ -322,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Signup failed! Please try again.");
 
             const data = await response.json();
-            console.log("Signup Successful:",);
+            console.log("Signup Successful");
             alert("Signup Successful!");
 
             // Store user ID
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Invalid username or password.");
 
             const data = await response.json();
-            console.log("Login Successful:");
+            console.log("Login Successful");
             alert("Login Successful!");
 
             // Store session ID and user ID
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("userId", data.userId);
 
             // Redirect to homepg
-            window.location.href = "homepg.html";
+            window.location.href = "home.html";
         } catch (error) {
             console.error("Error:", error);
             errorMessage.textContent = "Invalid credentials. Please try again.";

@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Check login status
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-        window.location.href = "index.html"; // Redirect to login page if not logged in
+    if (!sessionStorage.getItem("sessionId") || !localStorage.getItem("userId")) {
+        window.location.href = "index.html";
     }
+    
 
     // Smooth scrolling for navigation links
     document.querySelectorAll(".nav-links a").forEach(link => {
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Logout function
     document.getElementById("logout-btn")?.addEventListener("click", function () {
-    localStorage.removeItem("isLoggedIn");
-    window.location.href = "index.html";
-});
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "index.html";
+    });
 });
