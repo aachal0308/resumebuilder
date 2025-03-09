@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Achievements</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Resume Builder</h2>
+        <ul>
+            <li><a href="buildmyresume.html">1. Contact Info</a></li>
+            <li><a href="education.html">2. Education</a></li>
+            <li><a href="experience.html">3. Experience</a></li>
+            <li><a href="skills.html">4. Skills</a></li>
+            <li class="active"><a href="achievements.html">5. Achievements</a></li>
+            <li><a href="finalize.html">6. Finalize</a></li>
+        </ul>
+        <div class="progress">RESUME COMPLETENESS: 60%</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Achievements</h1>
+        <p>* indicates a required field</p>
+
+        <form action="finalize.html" method="post">
+            <label for="achievement1">Achievement 1 *</label>
+            <input type="text" id="achievement1" name="achievement1" placeholder="e.g. Won a Hackathon" required>
+
+            <label for="achievement2">Achievement 2</label>
+            <input type="text" id="achievement2" name="achievement2" placeholder="e.g. Published a Research Paper">
+
+            <label for="achievement3">Achievement 3</label>
+            <input type="text" id="achievement3" name="achievement3" placeholder="e.g. Top Performer in University">
+
+            <label for="achievementDetails">Additional Details</label>
+            <textarea id="achievementDetails" name="achievementDetails" rows="4" placeholder="Describe any major awards or recognitions..."></textarea>
+
+            <div class="buttons">
+                <a href="skills.html" class="btn secondary">Back</a>
+                <button type="submit" class="btn primary">Next: Finalize</button>
+            </div>
+        </form>
+    </div>
+    <script src="achievements.js"></script>
+
+</body>
+</html>
