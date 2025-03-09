@@ -1,0 +1,186 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color:#445E93;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar ul li.active {
+    background-color: #FCB0B3;
+}
+
+.sidebar ul li:hover {
+    background-color: #34495e;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+    width: calc(100% - 270px);
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.note {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 20px;
+    width: 90%; /* Increase the width of the sections */
+    max-width: 1200px; /* Set a max width to avoid extreme stretching */
+    margin: auto; /* Center align */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+#resumePreview {
+    width: 100%; /* Make it take full width of the container */
+    height: 500px; /* Increase height for better visibility */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.section h2 {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+.edit-btn {
+    background: #FCB0B3;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #FCB0B3;
+}
+
+/* Template Selection */
+.template-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.template-selection label {
+    text-align: center;
+    cursor: pointer;
+}
+
+.template-selection img {
+    width: 120px;
+    height: 160px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.template-selection input[type="radio"]:checked + img {
+    border: 2px solid #FCB0B3;
+    box-shadow: 0px 0px 10px #FCB0B3(231, 76, 60, 0.5);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-back, .btn-next {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-back {
+    background: #bdc3c7;
+    color: black;
+}
+
+.btn-next {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-next:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+.btn-next:hover:not(:disabled) {
+    background: #219150;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    .template-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .template-selection label {
+        margin-bottom: 15px;
+    }
+}

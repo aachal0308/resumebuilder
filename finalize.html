@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalize & Preview</title>
+    <link rel="stylesheet" href="finalize.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Resume Builder</h2>
+        <ul>
+            <li>1. Contact Info</li>
+            <li>2. Education</li>
+            <li>3. Experience</li>
+            <li>4. Skills</li>
+            <li>5. Achievements</li>
+            <li class="active">6. Finalize</li>
+        </ul>
+        <p>RESUME COMPLETENESS: 100%</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Finalize & Preview</h1>
+            <p class="note">Review your details before submitting your resume.</p>
+
+            <div class="section">
+                <h2>Contact Information <button class="edit-btn">Edit</button></h2>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Email:</strong> johndoe@example.com</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+            </div>
+
+            <div class="section">
+                <h2>Education <button class="edit-btn">Edit</button></h2>
+                <p><strong>Degree:</strong> B.Tech in Computer Science</p>
+                <p><strong>University:</strong> XYZ University</p>
+            </div>
+
+            <div class="section">
+                <h2>Experience <button class="edit-btn">Edit</button></h2>
+                <p><strong>Job Title:</strong> Software Engineer</p>
+                <p><strong>Company:</strong> Google</p>
+            </div>
+
+            <div class="section">
+                <h2>Skills <button class="edit-btn">Edit</button></h2>
+                <p>JavaScript, Python, React, UI/UX Design</p>
+            </div>
+
+            <div class="section">
+                <h2>Achievements <button class="edit-btn">Edit</button></h2>
+                <p>Won a Hackathon, Published a Research Paper</p>
+            </div>
+
+            <!-- Resume Template Selection -->
+            <div class="section">
+                <h2>Select Resume Template</h2>
+                <div class="template-selection">
+                    
+                    <button class="template-btn" data-template="template1.html">
+                       
+                        <img src="template1-preview.png" alt="Template 1">
+                        <p>Template 1</p>
+                    </button>
+            
+                    <button class="template-btn" data-template="template2.html">
+                        <img src="template2-preview.png" alt="Template 2">
+                        <p>Template 2</p>
+                    </button>
+            
+                    <button class="template-btn" data-template="template3.html">
+                        <img src="template3-preview.png" alt="Template 3">
+                        <p>Template 3</p>
+                    </button>
+                </div>
+                <p><strong>Selected Template:</strong> <span id="selectedTemplate">None</span></p>
+            </div>
+            
+            <!-- Preview Section -->
+            <div class="section">
+                <h2>Resume Preview</h2>
+                <iframe id="resumePreview" src="" frameborder="0"></iframe>
+            </div>
+            
+            
+
+            <div class="button-group">
+                <button type="button" class="btn-back" id="backBtn">Back</button>
+                <button type="button" class="btn-next" id="downloadBtn" disabled>Download PDF</button>
+                <button type="submit" class="btn-next">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="finalize.js"></script>
+</body>
+</html>

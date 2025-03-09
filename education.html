@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Education</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Resume Builder</h2>
+        <ul>
+            <li><a href="buildmyresume.html">1. Contact Info</a></li>
+            <li class="active"><a href="education.html">2. Education</a></li>
+            <li><a href="experience.html">3. Experience</a></li>
+            <li><a href="skills.html">4. Skills</a></li>
+            <li><a href="summary.html">5. Achievements</a></li>
+            <li><a href="finalize.html">6. Finalize</a></li>
+        </ul>
+        <div class="progress">RESUME COMPLETENESS: 20%</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Education Details</h1>
+        <p>* indicates a required field</p>
+
+        <form action="experience.html" method="post">
+            <label for="school">School/University *</label>
+            <input type="text" id="school" name="school" placeholder="e.g. Harvard University" required>
+
+            <label for="degree">Degree *</label>
+            <input type="text" id="degree" name="degree" placeholder="e.g. Bachelor of Science" required>
+
+            <label for="field">Field of Study *</label>
+            <input type="text" id="field" name="field" placeholder="e.g. Computer Science" required>
+
+            <label for="startYear">Start Year *</label>
+            <input type="month" id="startYear" name="startYear" required>
+
+            <label for="endYear">End Year (or Expected)</label>
+            <input type="month" id="endYear" name="endYear">
+
+            <label for="grade">Grade/GPA</label>
+            <input type="text" id="grade" name="grade" placeholder="e.g. 3.8/4.0">
+
+            <label for="activities">Extracurricular Activities</label>
+            <textarea id="activities" name="activities" rows="3" placeholder="e.g. Debate Club, Sports Team"></textarea>
+
+            <div class="buttons">
+                <a href="buildmyresume.html" class="btn secondary">Back</a>
+                <button type="submit" class="btn primary" onclick="location.href='experience.html'">Next: Experience</button>
+            </div>
+        </form>
+    </div>
+    <script src="education.js"></script>
+</body>
+</html>

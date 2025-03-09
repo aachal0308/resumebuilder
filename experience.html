@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Experience</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Resume Builder</h2>
+        <ul>
+            <li><a href="buildmyresume.html">1. Contact Info</a></li>
+            <li><a href="education.html">2. Education</a></li>
+            <li class="active"><a href="experience.html">3. Experience</a></li>
+            <li><a href="skills.html">4. Skills</a></li>
+            <li><a href="summary.html">5. Achievements</a></li>
+            <li><a href="finalize.html">6. Finalize</a></li>
+        </ul>
+        <div class="progress">RESUME COMPLETENESS: 30%</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Work Experience</h1>
+        <p>* indicates a required field</p>
+
+        <form action="skills.html" method="post">
+            <label for="jobTitle">Job Title *</label>
+            <input type="text" id="jobTitle" name="jobTitle" placeholder="e.g. Software Engineer" required>
+
+            <label for="company">Company Name *</label>
+            <input type="text" id="company" name="company" placeholder="e.g. Google" required>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Mumbai, India">
+
+            <label for="startDate">Start Date *</label>
+            <input type="month" id="startDate" name="startDate" required>
+
+            <label for="endDate">End Date (or Present)</label>
+            <input type="month" id="endDate" name="endDate">
+
+            <label for="description">Job Description</label>
+            <textarea id="description" name="description" rows="4" placeholder="Describe your role and achievements..."></textarea>
+
+            <div class="buttons">
+                <a href="education.html" class="btn secondary">Back</a>
+                <button type="submit" class="btn primary" onclick="location.href='skills.html'">Next: Skills</button>
+            </div>
+        </form>
+    </div>
+    <script src="experience.js"></script>
+
+</body>
+</html>

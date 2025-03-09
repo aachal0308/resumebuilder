@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Skills</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Resume Builder</h2>
+        <ul>
+            <li><a href="buildmyresume.html">1. Contact Info</a></li>
+            <li><a href="education.html">2. Education</a></li>
+            <li><a href="experience.html">3. Experience</a></li>
+            <li class="active"><a href="skills.html">4. Skills</a></li>
+            <li><a href="achievements.html">5. Achievements</a></li>
+            <li><a href="finalize.html">6. Finalize</a></li>
+        </ul>
+        <div class="progress">RESUME COMPLETENESS: 50%</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Skills</h1>
+        <p>* indicates a required field</p>
+
+        <form action="achievements.html" method="post">
+            <label for="skill1">Skill 1 *</label>
+            <input type="text" id="skill1" name="skill1" placeholder="e.g. JavaScript" required>
+
+            <label for="skill2">Skill 2 *</label>
+            <input type="text" id="skill2" name="skill2" placeholder="e.g. Python" required>
+
+            <label for="skill3">Skill 3</label>
+            <input type="text" id="skill3" name="skill3" placeholder="e.g. React">
+
+            <label for="skill4">Skill 4</label>
+            <input type="text" id="skill4" name="skill4" placeholder="e.g. UI/UX Design">
+
+            <label for="skill5">Skill 5</label>
+            <input type="text" id="skill5" name="skill5" placeholder="e.g. Project Management">
+
+            <div class="buttons">
+                <a href="experience.html" class="btn secondary">Back</a>
+                <button type="submit" class="btn primary">Next: Achievements</button>
+            </div>
+        </form>
+    </div>
+    <script src="skills.js"></script>
+
+</body>
+</html>
