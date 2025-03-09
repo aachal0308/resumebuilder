@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Check if user is already logged in
     if (sessionStorage.getItem("sessionId") && localStorage.getItem("userId")) {
-        window.location.href = "dashboard.html"; // Redirect if session exists
+        window.location.href = "homepg.html"; // Redirect if session exists
     }
 
     // Switch to Signup Form
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("userId", data.userId);
 
             // Redirect to dashboard
-            window.location.href = "dashboard.html";
+            window.location.href = "homepg.html";
         } catch (error) {
             console.error("Error:", error);
             errorMessage.textContent = "Invalid credentials. Please try again.";
